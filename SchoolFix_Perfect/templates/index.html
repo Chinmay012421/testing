@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchoolFix | PM SHRI Kendriya Vidyalaya Andrew's Ganj Reporting Portal</title>
+    <style>
+/* ================================
+   GLOBAL
+================================ */
+:root {
+    --navy: #0f172a;
+    --blue: #2563eb;
+    --blue-hover: #1d4ed8;
+    --light-blue: #eff6ff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --background: #f8fafc;
+    --white: #ffffff;
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--background);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+}
+
+/* ================================
+   HEADER
+================================ */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    max-width: 1180px;
+    margin: auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--navy);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.brand-mark span:last-child {
+    color: #38bdf8;
+}
+
+.brand > span {
+    color: var(--blue);
+}
+
+.nav-right {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--light-blue);
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-link, .nav-button {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 9px;
+}
+
+.nav-link {
+    color: var(--navy);
+    background: #f8fafc;
+    border: 1px solid var(--border);
+}
+
+.nav-button {
+    color: white;
+    background: var(--blue);
+}
+
+.nav-link:hover { background: #f1f5f9; }
+.nav-button:hover { background: var(--blue-hover); }
+
+/* ================================
+   HERO SECTION
+================================ */
+.hero {
+    min-height: calc(100vh - 75px);
+    max-width: 1180px;
+    margin: auto;
+    padding: 60px 24px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    margin-bottom: 20px;
+    border: 1px solid #bfdbfe;
+    background: var(--light-blue);
+    color: #1d4ed8;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: var(--blue);
+    border-radius: 50%;
+}
+
+h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    color: var(--navy);
+    margin-bottom: 20px;
+}
+
+h1 span {
+    color: var(--blue);
+}
+
+.hero-copy {
+    max-width: 580px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+.primary, .secondary {
+    border-radius: var(--radius);
+    padding: 14px 24px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+.primary {
+    border: none;
+    background: linear-gradient(135deg, var(--blue), var(--blue-hover));
+    color: white;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+}
+
+.secondary {
+    background: white;
+    color: var(--navy);
+    border: 1px solid var(--border);
+}
+
+.primary:hover, .secondary:hover {
+    transform: translateY(-2px);
+}
+
+.primary:hover {
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.35);
+}
+
+.secondary:hover {
+    background: #f1f5f9;
+}
+
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-card-art {
+    width: 100%;
+    max-width: 480px;
+    height: 400px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+    border: 1px solid #bfdbfe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.art-img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.floating {
+    position: absolute;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 18px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.floating.one {
+    left: -10px;
+    top: 15%;
+}
+
+.floating.two {
+    right: -10px;
+    bottom: 15%;
+}
+
+/* ================================
+   INFORMATION SECTION
+================================ */
+.section {
+    background: white;
+    padding: 90px 24px;
+    border-top: 1px solid var(--border);
+}
+
+.section-inner {
+    max-width: 1080px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.section-title h2 {
+    color: var(--navy);
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.section-title p {
+    color: var(--muted);
+    margin-top: 12px;
+    font-size: 17px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card {
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.06);
+    border-color: #cbd5e1;
+}
+
+.icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--light-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--blue);
+}
+
+.card h3 {
+    color: var(--navy);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* ================================
+   FEEDBACK SECTION
+================================ */
+.feedback {
+    display: none;
+    min-height: calc(100vh - 75px);
+    padding: 50px 24px;
+    background: linear-gradient(135deg, #f8fafc, #edf2f7);
+}
+
+.form-wrap {
+    max-width: 800px;
+    margin: auto;
+}
+
+.back {
+    border: none;
+    background: white;
+    color: var(--blue);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.back:hover {
+    background: var(--light-blue);
+}
+
+.form-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+}
+
+.form-card h2 {
+    color: var(--navy);
+    font-size: 30px;
+}
+
+.form-card > p {
+    color: var(--muted);
+    margin: 6px 0 28px;
+}
+
+/* Radio Choice Grid */
+.type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.type {
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--muted);
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.type.active {
+    border-color: var(--blue);
+    background: var(--light-blue);
+    color: var(--blue-hover);
+}
+
+.type input[type="radio"] {
+    display: none;
+}
+
+/* Inputs & Form Controls */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+label.form-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+input[type="text"], select, textarea {
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 12px 16px;
+    outline: none;
+    background: white;
+    color: var(--text);
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+input:disabled {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+    border-color: #e2e8f0;
+}
+
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 24px 0;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.check input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--blue);
+    cursor: pointer;
+}
+
+.submit {
+    width: 100%;
+    border: none;
+    background: linear-gradient(135deg, var(--blue), var(--blue-hover));
+    color: white;
+    border-radius: var(--radius);
+    padding: 16px;
+    font-weight: 800;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+.submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.3);
+}
+
+.note {
+    margin-top: 20px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+.success {
+    display: none;
+    margin-top: 18px;
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+    padding: 14px;
+    border-radius: var(--radius);
+    text-align: center;
+    font-weight: 700;
+}
+
+/* ================================
+   FOOTER
+================================ */
+.footer {
+    background: var(--navy);
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 850px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 40px;
+    }
+    .hero-copy {
+        margin: auto;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+    .hero-visual {
+        order: -1;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .floating {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .form-card {
+        padding: 24px;
+    }
+    .type-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <nav class="nav">
+        <a href="#" class="brand" onclick="goHome()">
+            <div class="brand-mark">
+                <span>S</span><span>V</span>
+            </div>
+            Student<span>Voice</span>
+        </a>
+        <div class="nav-actions">
+            {% if session.get("username") %}
+                <a class="nav-link" href="/dashboard">Dashboard</a>
+                <a class="nav-button" href="/logout">Logout</a>
+            {% else %}
+                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-button" href="/register">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+
+<!-- MAIN HOME PAGE -->
+<main id="home">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <div class="eyebrow">
+                <span class="dot"></span>
+                A better school starts with your voice
+            </div>
+            <h1>Your Voice <span>Matters.</span></h1>
+            <p class="hero-copy">
+                A simple and secure place for students to share suggestions, report concerns, and help the school create a better environment for everyone.
+            </p>
+            <div class="hero-actions">
+                <button class="primary" onclick="openFeedback()">
+                    Give Feedback or Suggestion →
+                </button>
+                <button class="secondary" onclick="document.getElementById('why').scrollIntoView()">
+                    Learn More
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-card-art">
+                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20240%20180%22%3E%0A%3Crect%20width%3D%22240%22%20height%3D%22180%22%20rx%3D%2220%22%20fill%3D%22%23dbeafe%22/%3E%0A%3Crect%20x%3D%2245%22%20y%3D%2265%22%20width%3D%22150%22%20height%3D%2285%22%20rx%3D%224%22%20fill%3D%22%23fff%22/%3E%0A%3Cpath%20d%3D%22M35%2068%20L120%2020%20L205%2068%20Z%22%20fill%3D%22%232563eb%22/%3E%0A%3Crect%20x%3D%22105%22%20y%3D%22105%22%20width%3D%2230%22%20height%3D%2245%22%20fill%3D%22%23bfdbfe%22/%3E%0A%3Crect%20x%3D%2265%22%20y%3D%2285%22%20width%3D%2225%22%20height%3D%2220%22%20fill%3D%22%2393c5fd%22/%3E%0A%3Crect%20x%3D%22150%22%20y%3D%2285%22%20width%3D%2225%22%20height%3D%2220%22%20fill%3D%22%2393c5fd%22/%3E%0A%3C/svg%3E" alt="School Illustration" class="art-img">
+                <p style="font-weight: 700; color: var(--navy);">Empowering Student Ideas</p>
+            </div>
+            <div class="floating one">💡 Ideas create change</div>
+            <div class="floating two">🔒 Anonymous & Safe</div>
+        </div>
+    </section>
+
+    <!-- INFORMATION CARDS -->
+    <section class="section" id="why">
+        <div class="section-inner">
+            <div class="section-title">
+                <h2>Speak up. Help improve.</h2>
+                <p>Your feedback provides clear insights to help make everyday school life better.</p>
+            </div>
+
+            <div class="cards">
+                <!-- SUGGESTION -->
+                <article class="card">
+                    <div class="icon">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2230%22%20fill%3D%22%23dbeafe%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-size%3D%2236%22%3E%F0%9F%92%A1%3C/text%3E%0A%3C/svg%3E" alt="Suggestion Icon" class="card-icon-img">
+                    </div>
+                    <h3>Share Your Ideas</h3>
+                    <p>Suggest new clubs, facility improvements, or fresh ideas that make learning more engaging.</p>
+                </article>
+
+                <!-- COMPLAINT -->
+                <article class="card">
+                    <div class="icon">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2230%22%20fill%3D%22%23dbeafe%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20text-anchor%3D%22middle%22%20font-size%3D%2236%22%3E%E2%9A%A0%3C/text%3E%0A%3C/svg%3E" alt="Complaint Icon" class="card-icon-img">
+                    </div>
+                    <h3>Report a Concern</h3>
+                    <p>Inform administrators securely about maintenance, canteen, safety, or classroom concerns.</p>
+                </article>
+
+                <!-- PRIVACY -->
+                <article class="card">
+                    <div class="icon">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2230%22%20fill%3D%22%23dbeafe%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2243%22%20text-anchor%3D%22middle%22%20font-size%3D%2234%22%3E%F0%9F%94%92%3C/text%3E%0A%3C/svg%3E" alt="Privacy Icon" class="card-icon-img">
+                    </div>
+                    <h3>Complete Privacy</h3>
+                    <p>Choose full anonymity whenever you prefer to keep your submission private.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FEEDBACK FORM SECTION -->
+<section class="feedback" id="feedback">
+    <div class="form-wrap">
+        <button class="back" onclick="goHome()">← Back to Home</button>
+
+        <div class="form-card">
+            <h2>Share Your Feedback</h2>
+            <p>Please provide clear context so the administration can take efficient action.</p>
+
+            <form id="feedbackForm" method="POST" action="/submit-report">
+                <!-- FEEDBACK TYPE -->
+                <div class="type-grid">
+                    <label class="type active" id="suggestionLabel">
+                        <input type="radio" name="feedbackType" id="typeSuggestion" value="Suggestion" checked>
+                        💡 Suggestion
+                    </label>
+                    <label class="type" id="complaintLabel">
+                        <input type="radio" name="feedbackType" id="typeComplaint" value="Complaint">
+                        ⚠️ Complaint
+                    </label>
+                </div>
+
+                <!-- FORM GRID -->
+                <div class="grid">
+                    <div class="group">
+                        <label class="form-label" for="name">Student Name</label>
+                        <input type="text" id="name" name="studentName" placeholder="Enter your name">
+                    </div>
+
+                    <div class="group">
+                        <label class="form-label" for="class">Class & Section</label>
+                        <input type="text" id="class" name="studentClass" placeholder="Example: 10-A">
+                    </div>
+
+                    <div class="group">
+                        <label class="form-label" for="category">Category</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select category</option>
+                            <option value="Academics">Academics</option>
+                            <option value="Infrastructure">Infrastructure</option>
+                            <option value="Cleanliness">Cleanliness</option>
+                            <option value="Canteen">Canteen</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Transport">Transport</option>
+                            <option value="School Events">School Events</option>
+                            <option value="Safety">Safety</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="group">
+                        <label class="form-label" for="priority">Priority</label>
+                        <select id="priority" name="priority">
+                            <option value="Normal">Normal</option>
+                            <option value="Important">Important</option>
+                            <option value="Urgent">Urgent</option>
+                        </select>
+                    </div>
+
+                    <div class="group full"><label class="form-label" for="location">Location</label><input type="text" id="location" name="location" required placeholder="Example: Class 10-A, Canteen, Playground"></div>
+
+                    <div class="group full">
+                        <label class="form-label" for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Give your feedback a concise title">
+                    </div>
+
+                    <div class="group full">
+                        <label class="form-label" for="message">Details</label>
+                        <textarea id="message" name="message" required placeholder="Describe your suggestion or concern in detail..."></textarea>
+                    </div>
+                </div>
+
+                <!-- ANONYMOUS CHECKBOX -->
+                <label class="check">
+                    <input type="checkbox" id="anonymous" name="anonymous">
+                    Submit anonymously (Hides name & class details)
+                </label>
+
+                <button class="submit" type="submit">Submit Feedback</button>
+
+                <div class="success" id="success">
+                    ✓ Feedback submitted successfully! Thank you for sharing.
+                </div>
+
+                <div class="note">
+                    Connected to the SchoolFix Flask backend. You must be logged in to submit and track reports.
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    Student Voice Portal © 2026
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+// Page Navigation
+function openFeedback() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("feedback").style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function goHome() {
+    document.getElementById("feedback").style.display = "none";
+    document.getElementById("home").style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Toggle Radio Button States
+const suggestionLabel = document.getElementById("suggestionLabel");
+const complaintLabel = document.getElementById("complaintLabel");
+const suggestionRadio = document.getElementById("typeSuggestion");
+const complaintRadio = document.getElementById("typeComplaint");
+
+suggestionLabel.addEventListener("click", () => {
+    suggestionRadio.checked = true;
+    suggestionLabel.classList.add("active");
+    complaintLabel.classList.remove("active");
+});
+
+complaintLabel.addEventListener("click", () => {
+    complaintRadio.checked = true;
+    complaintLabel.classList.add("active");
+    suggestionLabel.classList.remove("active");
+});
+
+// Anonymous Toggle Handler
+const anonymousCheckbox = document.getElementById("anonymous");
+const nameInput = document.getElementById("name");
+const classInput = document.getElementById("class");
+
+anonymousCheckbox.addEventListener("change", function() {
+    if (this.checked) {
+        nameInput.value = "";
+        classInput.value = "";
+        nameInput.disabled = true;
+        classInput.disabled = true;
+    } else {
+        nameInput.disabled = false;
+        classInput.disabled = false;
+    }
+});
+
+// Form Submission Simulation
+// The feedback form is submitted to Flask at /submit-report.
+// Do not intercept the form here; Flask handles saving it to SQLite.
+</script>
+
+</body>
+</html>
